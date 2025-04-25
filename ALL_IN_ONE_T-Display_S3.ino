@@ -788,6 +788,8 @@ void setBand(int8_t up_down)  //Sets Band up (1) or down (!1)
 
 void useBand()  //Switch the radio to current band
 {
+
+  digitalWrite(AMP_EN, LOW);
   if (band[bandIdx].bandType == FM_BAND_TYPE) {
     currentMode = FM;
     rx.setTuneFrequencyAntennaCapacitor(0);
@@ -842,7 +844,7 @@ void useBand()  //Switch the radio to current band
   //delay(100);
   currentFrequency = band[bandIdx].currentFreq;
   currentStepIdx = band[bandIdx].currentStepIdx;
-
+  digitalWrite(AMP_EN, HIGH);
   rssi = 0;
   snr = 0;
   cleanBfoRdsInfo();
@@ -851,10 +853,12 @@ void useBand()  //Switch the radio to current band
 
 void loadSSB()  //加载单边带文件
 {
+  digitalWrite(AMP_EN, LOW);
   rx.setI2CFastModeCustom(400000);  // You can try rx.setI2CFastModeCustom(700000); or greater value
   rx.loadPatch(ssb_patch_content, size_content, bandwidthSSB[bwIdxSSB].idx);
   rx.setI2CFastModeCustom(100000);
   ssbLoaded = true;
+  digitalWrite(AMP_EN, HIGH);
 }
 
 void doBandwidth(int8_t v)  //Switches the Bandwidth
