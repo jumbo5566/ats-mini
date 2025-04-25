@@ -1098,11 +1098,11 @@ void doabout(int8_t v)  //关于 屏幕刷新会刷新掉 暂时添加延时
   spr.setTextDatum(ML_DATUM);
   spr.loadFont(HanYiZhongYuanJian16);
 
-  spr.drawString("嘉立创 你别失望 开源 ", 1, 10);
-  spr.drawString("oshwhub.com/sunnygold", 1, 30);
-  spr.drawString("软件 汉化 改进 :zooc", 1, 50);
+  spr.drawString("  ", 1, 10);
+  spr.drawString("https://www.lceda.cn", 1, 30);
+  spr.drawString("软件 汉化 改进 :zooc/itboy", 1, 50);
   spr.drawString(" ", 1, 70);
-  spr.drawString("QQ群:854656412", 1, 90);
+  spr.drawString("QQ:578572000", 1, 90);
   spr.drawFloat(CONV_FACTOR,10, 100,130);
 
   spr.unloadFont();
